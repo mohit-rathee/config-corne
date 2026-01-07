@@ -1,123 +1,140 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <dt-bindings/led/led.h>
+#include <dt-bindings/zmk/reset.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/rgb.h>
 
-&led_strip {
-  chain-length = <0>;
-  // chain-length = <27>;
-  // 21 backlight + 6 glowlight
-};
-
-
-#define TAPPING_TERM 200
+&led_strip { chain-length = <27>; };
 
 / {
-  behaviors {
-    /*
-    * td_lock groups locking functions into one key:
-    *  - tap once to lock the host
-    *  - tap twice to put the host to sleep
-    */
+    behaviors {
+        HR_shift_R: HR_shift_R {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HR_SHIFT_R";
+            bindings = <&kp>, <&kp>;
 
-    td_lock: tap_dance_lock {
-      compatible = "zmk,behavior-tap-dance";
-      label = "TAP_DANCE_LOCK";
-      #binding-cells = <0>;
-      tapping-term-ms = <TAPPING_TERM>;
-      bindings = <&kp LG(LC(Q))>, <&kp LG(LA(C_EJECT))>;
-    };
-  };
+            #binding-cells = <2>;
+            tapping-term-ms = <230>;
+            hold-while-undecided;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
+            hold-trigger-on-release;
+        };
 
-  combos {
-    compatible = "zmk,combos";
+        HR_shift_L: HR_shift_L {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HR_SHIFT_L";
+            bindings = <&kp>, <&kp>;
 
-    Clear_BLE_Profile {
-      bindings = <&bt BT_CLR>;
-      key-positions = <0 38 5>;
-    };
+            #binding-cells = <2>;
+            tapping-term-ms = <230>;
+            hold-while-undecided;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
+        };
 
-    Space {
-      bindings = <&kp SPACE>;
-      key-positions = <29 28>;
-    };
+        HR_Mod_L: HR_Mod_L {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HR_MOD_L";
+            bindings = <&kp>, <&kp>;
 
-    Enter {
-      bindings = <&kp ENTER>;
-      key-positions = <17 16>;
-    };
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <230>;
+            hold-while-undecided;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41>;
+        };
 
-    Capslock {
-      bindings = <&kp CLCK>;
-      key-positions = <5 6>;
-    };
-  };
+        HR_Mod_R: HR_Mod_R {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HR_MOD_R";
+            bindings = <&kp>, <&kp>;
 
-  macros {
-    git_status: git_status {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings = <&kp G &kp I &kp T &kp SPACE &kp S &kp T &kp A &kp T &kp U &kp S>;
-      label = "GIT_STATUS";
-    };
-    git_commit_all: git_commit_all {
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings = <&kp G &kp I &kp T &kp SPACE &kp C &kp O &kp M &kp M &kp I &kp T &kp SPACE &kp MINUS &kp A &kp MINUS &kp M &kp SPACE &kp DQT &kp DQT &kp LEFT_ARROW>;
-      label = "GIT_COMMIT";
-    };
-  };
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <230>;
+            hold-while-undecided;
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
+        };
 
-  keymap {
-    compatible = "zmk,keymap";
+        long_press: long_press {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LONG_PRESS";
+            bindings = <&kp>, <&kp>;
 
-    base_layer {
-      label = "BASE";
-      bindings = <
-&mt LC(LS(LALT)) TAB  &kp Q  &kp W  &kp E         &kp R           &kp T       &kp Y      &kp U           &kp I      &kp O    &kp P      &kp MINUS
-&kp LSHIFT            &kp A  &kp S  &kp D         &kp F           &kp G       &kp H      &kp J           &kp K      &kp L    &kp SEMI   &kp SINGLE_QUOTE
-&kp LEFT_CONTROL      &kp Z  &kp X  &kp C         &kp V           &kp B       &kp N      &kp M           &kp COMMA  &kp DOT  &kp SLASH  &kp LEFT_ALT
-                                    &kp LEFT_GUI  &mo 2  &kp BSPC    &kp SPACE  &mo 1  &kp ENTER
-      >;
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+        };
     };
 
-    symbols_layer {
-      label = "SYMBOLS";
-      bindings = <
-&trans   &kp N1    &kp N2  &kp N3    &kp N4    &kp N5     &kp N6    &kp N7  &kp N8    &kp N9    &kp N0  &trans
-&kp ESC  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTERISK  &kp LPAR          &kp RPAR           &trans
-&trans         &kp GRAVE  &kp TILDE   &kp PIPE    &kp EQUAL  &kp PLUS        &kp LEFT_BRACKET  &kp RIGHT_BRACKET        &kp LEFT_BRACE    &kp RIGHT_BRACE    &kp BACKSLASH &trans
-                           &trans    &trans    &trans       &trans     &trans     &trans
-      >;
-    };
+    keymap {
+        compatible = "zmk,keymap";
 
-    nav_layer {
-      label = "NAV";
-      bindings = <
-&kp LG(LC(TAB))          &trans  &kp LG(LEFT_BRACKET)  &kp LS(TAB)        &kp TAB          &kp LG(RIGHT_BRACKET)    &kp LA(LEFT)       &kp LA(DOWN)  &kp LA(UP)  &kp LA(RIGHT)  &trans  &trans
-&kp ESC           &trans  &trans                &kp K_SCROLL_DOWN  &kp K_SCROLL_UP  &trans                   &kp LEFT           &kp DOWN      &kp UP      &kp RIGHT      &trans  &trans
-&trans  &trans  &kp HOME              &kp PG_DN          &kp PG_UP        &kp END                  &kp LG(LEFT)       &kp LG(DOWN)  &kp LG(UP)  &kp LG(RIGHT)  &trans  &trans
-                                               &trans             &trans           &trans                   &kp LC(LG(SPACE))  &trans        &trans
-      >;
-    };
+        default_layer {
+            display-name = "BAS";
 
-    extended_layer {
-      label = "EXT";
-      bindings = <
-&trans  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6           &kp F7           &kp F8           &kp F9                &kp F10               &kp F12
-&kp K_PP  &kp K_PREV        &kp K_NEXT     &kp K_MUTE    &kp C_VOL_DN  &kp C_VOL_UP     &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans &trans &trans           &trans
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4     &trans        &trans          &trans           &trans           &trans  &trans    
-                                    &trans        &trans        &trans          &trans           &trans           &trans
-      >;
-    };
-  };
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+            //                    | ALT | LWR | SPC |   | ENT | RSE  | BKSP|
 
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
+            bindings = <
+&kp TAB    &kp Q                 &kp W                 &kp E              &kp R                &kp T             &kp Y      &kp U                 &kp I              &kp O                  &kp P                     &long_press LC(BSPC) BACKSPACE
+&kp LCTRL  &HR_Mod_L LEFT_GUI A  &HR_Mod_L LEFT_ALT S  &HR_Mod_L LCTRL D  &HR_shift_L LSHFT F  &kp G             &kp H      &HR_shift_R RSHIFT J  &HR_Mod_R RCTRL K  &HR_Mod_R RIGHT_ALT L  &HR_Mod_R RGUI SEMICOLON  &kp SQT
+&kp LSHFT  &kp Z                 &kp X                 &kp C              &kp V                &kp B             &kp N      &kp M                 &kp COMMA          &kp DOT                &kp FSLH                  &kp ESC
+                                                       &lt 3 LEFT_ALT     &lt 2 BACKSPACE      &kp LEFT_SHIFT    &kp ENTER  &lt 1 SPACE           &kp COLON
+            >;
+        };
 
-    Activate_EXT {
-      if-layers = <1 2>;
-      then-layer = <3>;
+        lower_layer {
+            display-name = "LOW";
+
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6     &kp N7    &kp N8    &kp N9     &kp N0     &kp BSPC
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT  &kp SLASH  &trans
+&kp LSHFT   &trans        &trans        &trans        &trans        &trans          &trans     &trans    &trans    &trans     &trans     &trans
+                                        &trans        &mo 3         &kp ENTER       &kp ENTER  &trans    &kp RALT
+            >;
+        };
+
+        raise_layer {
+            display-name = "RAI";
+
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+            //                    | GUI |     | SPC |   | ENT |     | ALT |
+
+            bindings = <
+&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR        &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
+&kp LCTRL  &trans    &trans  &trans    &trans          &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
+&kp LSHFT  &trans    &trans  &trans    &trans          &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
+                             &kp LGUI  &studio_unlock  &kp ENTER    &kp SPACE  &mo 3      &kp RALT
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &kp LA(NUMBER_1)  &kp LA(NUMBER_2)  &kp LA(NUMBER_3)  &kp LA(NUMBER_4)  &kp LA(N5)    &kp LA(NUMBER_6)  &kp LA(NUMBER_7)  &kp LA(N8)  &kp LA(N9)  &kp LA(N0)  &trans
+&trans  &trans            &trans            &trans            &trans            &trans        &trans            &trans            &trans      &trans      &trans      &trans
+&trans  &trans            &trans            &trans            &trans            &trans        &trans            &trans            &trans      &trans      &trans      &bootloader
+                                            &trans            &trans            &trans        &trans            &trans            &trans
+            >;
+        };
     };
-  };
 };
