@@ -1,7 +1,7 @@
-layout: {qmk_keyboard: corne_rotated, qmk_layout: LAYOUT_split_3x6_3}
+layout: {zmk_keyboard: corne}
 layers:
-  BASE:
-  - {t: TAB, h: LC(LS(LALT))}
+  BAS:
+  - TAB
   - Q
   - W
   - E
@@ -12,20 +12,20 @@ layers:
   - I
   - O
   - P
-  - '-'
-  - LSHIFT
-  - A
-  - S
-  - D
-  - F
+  - {t: BACKSPACE, h: Ctl+BSPC}
+  - LCTRL
+  - {t: A, h: LEFT GUI}
+  - {t: S, h: LEFT ALT}
+  - {t: D, h: LCTRL}
+  - {t: F, h: LSHFT}
   - G
   - H
-  - J
-  - K
-  - L
-  - ;
+  - {t: J, h: RSHIFT}
+  - {t: K, h: RCTRL}
+  - {t: L, h: RIGHT ALT}
+  - {t: ;, h: RGUI}
   - ''''
-  - LEFT CONTROL
+  - LSHFT
   - Z
   - X
   - C
@@ -36,15 +36,15 @@ layers:
   - ','
   - .
   - /
-  - LEFT ALT
-  - LEFT GUI
-  - NAV
-  - BSPC
-  - SPACE
-  - SYMBOLS
+  - ESC
+  - {t: LEFT ALT, h: '3'}
+  - {t: BACKSPACE, h: RAI}
+  - LEFT SHIFT
   - ENTER
-  SYMBOLS:
-  - {t: ▽, type: trans}
+  - {t: SPACE, h: LOW}
+  - ':'
+  LOW:
+  - TAB
   - '1'
   - '2'
   - '3'
@@ -55,8 +55,39 @@ layers:
   - '8'
   - '9'
   - '0'
+  - BSPC
+  - BT CLR
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - LEFT
+  - DOWN
+  - UP
+  - RIGHT
+  - /
   - {t: ▽, type: trans}
-  - ESC
+  - LSHFT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '3'
+  - ENTER
+  - ENTER
+  - {type: held}
+  - RALT
+  RAI:
+  - TAB
   - '!'
   - '@'
   - '#'
@@ -64,102 +95,52 @@ layers:
   - '%'
   - ^
   - '&'
-  - '*'
+  - KP MULTIPLY
   - (
   - )
+  - BSPC
+  - LCTRL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '`'
-  - '~'
-  - '|'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '-'
   - '='
-  - +
   - '['
   - ']'
+  - \
+  - '`'
+  - LSHFT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - _
+  - +
   - '{'
   - '}'
-  - \
+  - '|'
+  - '~'
+  - LGUI
+  - {t: '&studio_unlock', type: held}
+  - ENTER
+  - SPACE
+  - '3'
+  - RALT
+  '3':
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  NAV:
-  - LG(LC(TAB))
-  - {t: ▽, type: trans}
-  - LG(LEFT BRACKET)
-  - LS(TAB)
-  - TAB
-  - LG(RIGHT BRACKET)
-  - LA(LEFT)
-  - LA(DOWN)
-  - LA(UP)
-  - LA(RIGHT)
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ESC
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - SCROLL DOWN
-  - SCROLL UP
-  - {t: ▽, type: trans}
-  - LEFT
-  - DOWN
-  - UP
-  - RIGHT
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - HOME
-  - PG DN
-  - PG UP
-  - END
-  - LG(LEFT)
-  - LG(DOWN)
-  - LG(UP)
-  - LG(RIGHT)
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - LC(LG(SPACE))
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  EXT:
-  - {t: ▽, type: trans}
-  - F1
-  - F2
-  - F3
-  - F4
-  - F5
-  - F6
-  - F7
-  - F8
-  - F9
-  - F10
-  - F12
-  - PP
-  - PREV
-  - NEXT
-  - MUTE
-  - VOL DN
-  - VOL UP
-  - BRIGHTNESS DEC
-  - BRIGHTNESS INC
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - {t: BT, h: '4'}
+  - Alt+1
+  - Alt+2
+  - Alt+3
+  - Alt+4
+  - Alt+5
+  - Alt+6
+  - Alt+7
+  - Alt+8
+  - Alt+9
+  - Alt+0
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -167,17 +148,27 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&bootloader'
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
   - {t: ▽, type: trans}
-combos:
-- p: [0, 38, 5]
-  k: BT CLR
-- p: [29, 28]
-  k: SPACE
-- p: [17, 16]
-  k: ENTER
-- p: [5, 6]
-  k: CLCK
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
