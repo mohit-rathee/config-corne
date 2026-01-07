@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: corne}
 layers:
   BAS:
-  - TAB
+  - {t: DELETE, h: Ctl+DEL}
   - Q
   - W
   - E
@@ -25,7 +25,7 @@ layers:
   - {t: L, h: RIGHT ALT}
   - {t: ;, h: RGUI}
   - ''''
-  - LSHFT
+  - CAPSLOCK
   - Z
   - X
   - C
@@ -36,43 +36,43 @@ layers:
   - ','
   - .
   - /
-  - ESC
-  - {t: LEFT ALT, h: '3'}
-  - {t: BACKSPACE, h: RAI}
-  - LEFT SHIFT
-  - ENTER
-  - {t: SPACE, h: LOW}
-  - ':'
-  LOW:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ESCAPE, h: SYM}
   - TAB
+  - ENTER
+  - {t: SPACE, h: NUM}
+  - ':'
+  NUM:
+  - DELETE
+  - {t: ▽, type: trans}
   - '1'
   - '2'
   - '3'
+  - HOME
+  - F2
+  - F3
+  - F5
+  - F11
+  - F12
+  - BSPC
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - '4'
   - '5'
   - '6'
-  - '7'
-  - '8'
-  - '9'
-  - '0'
-  - BSPC
-  - BT CLR
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - {t: BT, h: '4'}
+  - END
   - LEFT
   - DOWN
   - UP
   - RIGHT
-  - /
-  - {t: ▽, type: trans}
-  - LSHFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '7'
+  - '8'
+  - '9'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -82,35 +82,35 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '3'
-  - ENTER
+  - '0'
   - ENTER
   - {type: held}
-  - RALT
-  RAI:
-  - TAB
+  - {t: ▽, type: trans}
+  SYM:
+  - DELETE
   - '!'
   - '@'
   - '#'
   - $
   - '%'
   - ^
-  - '&'
-  - KP MULTIPLY
+  - '*'
   - (
   - )
+  - '*'
   - BSPC
   - LCTRL
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '|'
+  - '&'
+  - '~'
+  - '~'
   - '-'
   - '='
   - '['
   - ']'
-  - \
   - '`'
+  - {t: ▽, type: trans}
   - LSHFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -121,14 +121,14 @@ layers:
   - +
   - '{'
   - '}'
-  - '|'
-  - '~'
-  - LGUI
-  - {t: '&studio_unlock', type: held}
+  - \
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
   - ENTER
   - SPACE
   - '3'
-  - RALT
+  - {t: ▽, type: trans}
   '3':
   - {t: ▽, type: trans}
   - Alt+1
@@ -166,9 +166,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&bootloader'
+  - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
