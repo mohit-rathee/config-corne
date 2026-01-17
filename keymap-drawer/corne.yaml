@@ -161,10 +161,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - PREVIOUS
-  - NEXT
-  - PLAY PAUSE
   - {t: ▽, type: trans}
+  - PREV
+  - NEXT
+  - PP
   - '&bootloader'
   - {type: held}
   - {t: ▽, type: trans}
