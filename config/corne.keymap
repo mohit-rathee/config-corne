@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/reset.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 &led_strip { chain-length = <27>; };
 
@@ -87,9 +88,9 @@
 
             bindings = <
 &long_press LC(DEL) DELETE  &kp Q                 &kp W                 &kp E              &kp R                &kp T      &kp Y      &kp U                 &kp I              &kp O                  &kp P                     &long_press LC(BSPC) BACKSPACE
-&kp LCTRL                   &HR_Mod_L LEFT_GUI A  &HR_Mod_L LEFT_ALT S  &HR_Mod_L LCTRL D  &HR_shift_L LSHFT F  &kp G      &kp H      &HR_shift_R RSHIFT J  &HR_Mod_R RCTRL K  &HR_Mod_R RIGHT_ALT L  &HR_Mod_R RGUI SEMICOLON  &kp SQT
+&kp LCTRL                   &HR_Mod_L LEFT_GUI A  &HR_Mod_L LEFT_ALT S  &HR_Mod_L LCTRL D  &HR_shift_L LSHFT F  &kp G      &kp H      &HR_shift_R RSHIFT J  &HR_Mod_R RCTRL K  &HR_Mod_R RIGHT_ALT L  &HR_Mod_R RGUI SEMICOLON  &long_press DOUBLE_QUOTES SQT
 &kp CAPSLOCK                &kp Z                 &kp X                 &kp C              &kp V                &kp B      &kp N      &kp M                 &kp COMMA          &kp DOT                &kp FSLH                  &trans
-                                                                        &trans             &lt 2 ESCAPE         &kp TAB    &kp ENTER  &lt 1 SPACE           &kp COLON
+                                                                        &mo 3              &lt 2 ESCAPE         &kp TAB    &kp ENTER  &lt 1 SPACE           &kp COLON
             >;
         };
 
@@ -103,10 +104,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp DELETE  &trans  &kp N1  &kp N2  &kp N3  &kp HOME    &kp F2     &kp F3    &kp F5  &kp F11    &kp F12  &kp BSPC
-&trans      &trans  &kp N4  &kp N5  &kp N6  &kp END     &kp LEFT   &kp DOWN  &kp UP  &kp RIGHT  &trans   &trans
-&trans      &trans  &kp N7  &kp N8  &kp N9  &trans      &trans     &trans    &trans  &trans     &trans   &trans
-                            &trans  &mo 3   &kp N0      &kp ENTER  &trans    &trans
+&kp DELETE  &trans    &kp N1  &kp N2  &kp N3  &kp N0     &kp F2     &kp F3    &kp F5  &kp F11    &kp F12  &kp BSPC
+&trans      &kp HOME  &kp N4  &kp N5  &kp N6  &kp END    &kp LEFT   &kp DOWN  &kp UP  &kp RIGHT  &trans   &trans
+&trans      &trans    &kp N7  &kp N8  &kp N9  &trans     &trans     &trans    &trans  &trans     &trans   &trans
+                              &trans  &mo 2   &trans     &kp ENTER  &trans    &trans
             >;
 
             label = "NUM";
@@ -122,22 +123,24 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp DELETE  &kp EXCL  &kp AT    &kp HASH       &kp DLLR   &kp PRCNT    &kp CARET  &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK   &kp BSPC
-&kp LCTRL   &trans    &kp PIPE  &kp AMPERSAND  &kp TILDE  &kp TILDE    &kp MINUS  &kp EQUAL  &kp LBKT              &kp RBKT               &kp GRAVE      &trans
-&kp LSHFT   &trans    &trans    &trans         &trans     &trans       &kp UNDER  &kp PLUS   &kp LBRC              &kp RBRC               &kp BACKSLASH  &trans
-                                &trans         &trans     &kp ENTER    &kp SPACE  &mo 3      &trans
+&kp DELETE  &kp EXCL  &kp AT    &kp HASH       &kp DLLR   &kp PRCNT        &kp CARET  &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK   &kp BSPC
+&kp LCTRL   &trans    &kp PIPE  &kp AMPERSAND  &kp TILDE  &kp BACKSLASH    &kp MINUS  &kp EQUAL  &kp LBKT              &kp RBKT               &kp GRAVE      &trans
+&kp LSHFT   &trans    &trans    &trans         &trans     &trans           &kp UNDER  &kp PLUS   &kp LBRC              &kp RBRC               &kp BACKSLASH  &trans
+                                &trans         &trans     &kp ENTER        &kp SPACE  &mo 1      &trans
             >;
 
             label = "SYM";
         };
 
-        layer_3 {
+        fun_layer {
             bindings = <
-&trans  &kp LA(NUMBER_1)  &kp LA(NUMBER_2)  &kp LA(NUMBER_3)  &kp LA(NUMBER_4)  &kp LA(N5)    &kp LA(NUMBER_6)  &kp LA(NUMBER_7)  &kp LA(N8)  &kp LA(N9)  &kp LA(N0)  &trans
-&trans  &trans            &trans            &trans            &trans            &trans        &trans            &trans            &trans      &trans      &trans      &trans
-&trans  &trans            &trans            &trans            &trans            &trans        &trans            &trans            &trans      &trans      &trans      &bootloader
-                                            &trans            &trans            &trans        &trans            &trans            &trans
+&trans       &trans  &trans  &trans  &trans  &trans    &kp C_BRIGHTNESS_INC  &kp C_BRIGHTNESS_DEC  &kp C_VOLUME_UP  &kp C_VOL_DN      &trans  &trans
+&trans       &trans  &trans  &trans  &trans  &trans    &mmv MOVE_LEFT        &mmv MOVE_DOWN        &mmv MOVE_UP     &mmv MOVE_RIGHT   &trans  &trans
+&bootloader  &trans  &trans  &trans  &trans  &trans    &trans                &kp C_PREVIOUS        &kp C_NEXT       &kp C_PLAY_PAUSE  &trans  &bootloader
+                             &trans  &trans  &trans    &mkp RCLK             &mkp LCLK             &trans
             >;
+
+            label = "FUN";
         };
     };
 };
