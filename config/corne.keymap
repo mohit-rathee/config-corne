@@ -93,7 +93,7 @@
 
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <220>;
         };
     };
 
@@ -110,10 +110,10 @@
             //                    | ALT | LWR | SPC |   | ENT | RSE  | BKSP|
 
             bindings = <
-&kp ESCAPE    &kp Q                 &kp W                 &kp E              &kp R                &kp T                     &kp Y      &kp U                 &kp I              &kp O                  &kp P                     &long_press LC(BSPC) BACKSPACE
-&kp LCTRL     &HR_Mod_L LEFT_GUI A  &HR_Mod_L LEFT_ALT S  &HR_Mod_L LCTRL D  &HR_shift_L LSHFT F  &kp G                     &kp H      &HR_shift_R RSHIFT J  &HR_Mod_R RCTRL K  &HR_Mod_R RIGHT_ALT L  &HR_Mod_R RGUI SEMICOLON  &long_press DOUBLE_QUOTES SQT
-&kp CAPSLOCK  &kp Z                 &kp X                 &kp C              &kp V                &kp B                     &kp N      &kp M                 &kp COMMA          &kp DOT                &kp FSLH                  &trans
-                                                          &mo 3              &late_tap 2 ESCAPE   &HR_Mod_L LEFT_ALT TAB    &kp ENTER  &lt 1 SPACE           &kp COLON
+&kp ESCAPE    &kp Q                 &kp W                 &kp E              &kp R                &kp T      &kp Y      &kp U                 &kp I              &kp O                  &kp P                     &long_press LC(BSPC) BACKSPACE
+&kp LCTRL     &HR_Mod_L LEFT_GUI A  &HR_Mod_L LEFT_ALT S  &HR_Mod_L LCTRL D  &HR_shift_L LSHFT F  &kp G      &kp H      &HR_shift_R RSHIFT J  &HR_Mod_R RCTRL K  &HR_Mod_R RIGHT_ALT L  &HR_Mod_R RGUI SEMICOLON  &long_press DOUBLE_QUOTES SQT
+&kp CAPSLOCK  &kp Z                 &kp X                 &kp C              &kp V                &kp B      &kp N      &kp M                 &kp COMMA          &kp DOT                &kp FSLH                  &trans
+                                                          &mo 3              &late_tap 2 ESCAPE   &kp TAB    &kp ENTER  &late_tap 1 SPACE     &kp COLON
             >;
         };
 
@@ -157,10 +157,10 @@
 
         fun_layer {
             bindings = <
-&ext_power EP_TOG  &trans  &trans  &trans      &trans      &trans    &kp C_BRIGHTNESS_INC              &kp C_BRIGHTNESS_DEC              &kp C_VOLUME_UP               &kp C_VOL_DN                        &trans    &kp K_MUTE
-&bt BT_CLR         &trans  &trans  &bt BT_PRV  &bt BT_NXT  &trans    &long_scroll MOVE_LEFT SCRL_LEFT  &long_scroll MOVE_DOWN SCRL_DOWN  &long_scroll MOVE_UP SCRL_UP  &long_scroll MOVE_RIGHT SCRL_RIGHT  &trans    &trans
-&bootloader        &trans  &trans  &trans      &trans      &trans    &trans                            &trans                            &kp C_PREV                    &kp C_NEXT                          &kp C_PP  &bootloader
-                                   &trans      &trans      &trans    &mkp RCLK                         &mkp LCLK                         &trans
+&ext_power EP_TOG  &trans  &trans  &trans      &trans      &trans    &kp C_BRIGHTNESS_INC  &kp C_BRIGHTNESS_DEC  &kp C_VOLUME_UP  &kp C_VOL_DN     &trans    &kp K_MUTE
+&bt BT_CLR         &trans  &trans  &bt BT_PRV  &bt BT_NXT  &trans    &mmv MOVE_LEFT        &mmv MOVE_DOWN        &mmv MOVE_UP     &mmv MOVE_RIGHT  &trans    &trans
+&bootloader        &trans  &trans  &trans      &trans      &trans    &trans                &trans                &kp C_PREV       &kp C_NEXT       &kp C_PP  &bootloader
+                                   &trans      &trans      &trans    &mkp RCLK             &mkp LCLK             &trans
             >;
 
             label = "FUN";
