@@ -1,0 +1,20 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &default_transform;
+    };
+};
+
+/* RIGHT side is the brain */
+&split {
+    role = "central";
+};
+
+/* Enable USB + BLE */
+&usb {
+    status = "okay";
+};
+
+&bt {
+    status = "okay";
+};
