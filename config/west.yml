@@ -3,7 +3,7 @@ manifest:
     - name: zmk-fork
       url-base: https://github.com/mohit-rathee
   projects:
-    - name: zmk
+    - name: zmk-fork
       remote: zmk-fork
       revision: main
       import: app/west.yml
