@@ -2,10 +2,13 @@ manifest:
   remotes:
     - name: zmk-fork
       url-base: https://github.com/mohit-rathee
+
   projects:
-    - name: zmk-fork
+    - name: zmk
       remote: zmk-fork
+      repo-path: zmk-fork
       revision: main
       import: app/west.yml
+
   self:
     path: config
