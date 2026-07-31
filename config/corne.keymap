@@ -116,7 +116,7 @@
         mo_toggle: mo_toggle {
             compatible = "zmk,behavior-hold-tap";
             label = "MO_TOGGLE";
-            bindings = <&mo>, <&tog>;
+            bindings = <&mo>, <&to>;
 
             #binding-cells = <2>;
             tapping-term-ms = <180>;
@@ -205,10 +205,10 @@
 
         vim_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans         &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp H   &kp J   &kp K   &kp L   &kp SEMICOLON  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans         &trans
-                        &mo 3   &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &trans          &trans  &trans    &trans  &trans  &trans  &trans  &trans         &trans
+&trans  &trans  &trans  &trans          &trans  &trans    &kp H   &kp J   &kp K   &kp L   &kp SEMICOLON  &trans
+&trans  &trans  &trans  &trans          &trans  &trans    &trans  &trans  &trans  &trans  &trans         &trans
+                        &mo_toggle 3 0  &trans  &trans    &trans  &trans  &trans
             >;
 
             label = "VIM";
